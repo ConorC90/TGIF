@@ -1,0 +1,100 @@
+.navDiv {
+    display: flex;
+    flex-direction:
+}
+.flex6-6{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.table{
+    text-align: center;
+/*    display: flex;*/
+/*    flex-direction: column;*/
+}
+thead{
+    text-align: center;
+}
+.theThead{
+    text-align: center;
+}
+
+h1{
+    font-family:serif;
+}
+
+h2{
+    font-size: 25px;
+}
+
+.emailLogo{
+    position: relative;
+    top:100px;
+}
+
+th{
+    text-align: center;
+    background-color: #2f2f2f;
+    color: #cacaca;
+    
+}
+#stateDropDown{
+    text-align: center;
+    background-color: #2f2f2f;
+    color: #cacaca;
+}
+
+
+/*Loader Styling*/
+
+#loader {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid black;
+  width: 120px;
+  height: 120px;
+    opacity: 0.6;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#loaderDiv {
+  display: none;
+
+}

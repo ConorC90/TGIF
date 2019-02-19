@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Senate Attendance</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../styleSheets/CSS_TGIF.css">
+
+
+
+</head>
+
+<body>
+    <div class="container" id="app1">
+        <header>
+            <div class="jumbotron text-center contanier-fluid img-circle container" style="background: transparent">
+            <div class="row">
+                <img src="../images/BIG%20LOGO.jpg" width="200" height="180" class="d-inline-block align-top col-lg-3 align-bottom img-circle" alt="TGIF Logo">
+
+                <div class="page-header col-lg-8 align-bottom">
+                    <h1>Transparent Government in Fact</h1>
+
+
+                </div>
+               <div class="emailLogo align-bottom"><p> 
+                <a class="mail glyphicon-envelope col-lg-1" href="mailto:info@tgif.net" target="_top">info@tgif.net</a></p></div>
+
+            </div>
+        </div>
+</header>
+
+        <nav class="navbar navbar-dark bg-dark  navbar-inverse ">
+
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TGIF</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="../html_starter_pages/Index.html">Home</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Congress 113
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html_starter_pages/senatePage.html">Senate</a></li>
+                            <li><a href="../html_starter_pages/housePage.html">House</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Attendance
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class='active'><a href="../html_starter_pages/senate_attendance.html">Senate</a></li>
+                            <li><a href="../html_starter_pages/House_Party_Attendance.html">House</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Party Loyalty
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html_starter_pages/senate_party-loyalty.html">Senate</a></li>
+                            <li><a href="../html_starter_pages/House_Party_Loyalty.html">House</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="loader"></div>
+
+        <div id="loaderDiv" class="animate-bottom">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Attendance</h2>
+                        <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+
+                        <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Senate at a glance</h2>
+                        <table class='glanceTableNumbers table table-bordered table-hover text-center table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th>Party</th>
+                                    <th>Number of Reps</th>
+                                    <th>% Voted with Prty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr v-for="value, index in party ">
+                                    <td>{{index}}</td>
+                                    <td>{{value.membersCount}}</td>
+                                    <td>{{value.membersAverage + "&#37;"}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+
+
+
+
+
+
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Least Engaged (Bottom 10% Attendance)</h2>
+
+
+                        <table class="table table-bordered table-hover table-condensed text-center">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Number of Missed Votes</th>
+                                    <th>% Missed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in theBottomTenVoters">
+                                    <td><a v-bind:href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
+                                    <td>{{item.missed_votes}}</td>
+                                    <td>{{item.missed_votes_pct + "&#x25;"}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Most Engaged (Top 10% Attendance)</h2>
+                        <table class="table table-bordered table-hover table-condensed text-center">
+                            <thead>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of Missed Votes</th>
+                                        <th>% Missed</th>
+                                    </tr>
+                                </thead>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in theTopTenVoters">
+                                    <td><a v-bind:href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
+                                    <td>{{item.missed_votes}}</td>
+                                    <td>{{item.missed_votes_pct + "&#x25;"}}</td>
+                                </tr>
+
+                            </tbody>
+
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="container">
+
+                    <footer class="panel-footer">
+                        <div class="container">
+                            <div class="footer-copyright text-center py-3">©2016 TGIF | All Rights Reserved</div>
+                        </div>
+                    </footer>
+                </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="../Java_Script_files/Attendance_Statistics.js"></script>
+
+</body>
+
+</html>

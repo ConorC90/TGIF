@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>House Overview</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../styleSheets/CSS_TGIF.css">
+</head>
+
+<body>
+    <header>
+            <div class="jumbotron text-center contanier-fluid img-circle container" style="background: transparent">
+            <div class="row">
+                <img src="../images/BIG%20LOGO.jpg" width="200" height="180" class="d-inline-block align-top col-lg-3 align-bottom img-circle" alt="TGIF Logo">
+
+                <div class="page-header col-lg-8 align-bottom">
+                    <h1>Transparent Government in Fact</h1>
+
+
+                </div>
+               <div class="emailLogo align-bottom"><p> 
+                <a class="mail glyphicon-envelope col-lg-1" href="mailto:info@tgif.net" target="_top">info@tgif.net</a></p></div>
+
+            </div>
+        </div>
+</header>
+<!--                        <div class="row">-->
+
+                
+        <div class="container">
+    <nav class="navbar navbar-dark bg-dark  navbar-inverse ">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TGIF</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="../html_starter_pages/Index.html">Home</a></li>
+                
+                   <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Congress 113
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../html_starter_pages/senatePage.html">Senate</a></li>
+                        <li class='active'><a href="../html_starter_pages/housePage.html">House</a></li>
+                    </ul>
+                </li>
+             
+                      <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Attendance
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../html_starter_pages/senate_attendance.html">Senate</a></li>
+                        <li><a href="../html_starter_pages/House_Party_Attendance.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Party Loyalty
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../html_starter_pages/senate_party-loyalty.html">Senate</a></li>
+                        <li><a href="../html_starter_pages/House_Party_Loyalty.html">House</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        </div>
+
+<div id="loader"></div>
+    <div id="loaderDiv" class="animate-bottom">
+
+           
+
+    <div class="container">
+        <h2>Congressmen</h2>
+        <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+        <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
+
+    </div>
+
+    <div class="container">
+<hr>
+             <div class="row">
+           <div class="col-lg-1">
+            <input type="checkbox" name="partyAffiliation" value="D" id="democrat" onclick="boxIsClicked();">
+            <p>Democrat</p>
+            </div>
+            <div class="col-lg-1">
+            <input type="checkbox" name="partyAffiliation" value="R" id="republican" onclick="boxIsClicked();">
+            <p>Republican</p>
+            </div>
+            
+            <div class="col-lg-1">
+            <input type="checkbox" name="partyAffiliation" value="I" id="independent" onclick="boxIsClicked();">
+            <p>Independent</p>
+            </div>
+        </div>
+
+
+    <div class="container" id="app">
+       <table class = "table table-bordered table-hover text-center table-condensed ">
+
+       <thead>
+           <tr>
+               <th>First Name</th>
+                
+                    <th>Party</th>
+
+
+                    <th><select id="stateDropDown" onchange="boxIsClicked()">
+                            <option value="All States" selected>All States</option>
+                        </select>
+
+
+                    </th>
+                    <th>seniority</th>
+                    <th>% Votes with party</th>
+           </tr>
+       </thead>
+             <tbody>
+              <tr v-for="item in filteredMembers">
+                  <td><a v-bind:href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
+                  <td>{{item.party}}</td>
+                  <td>{{item.state}}</td>
+                  <td>{{item.seniority}}</td>
+                  <td>{{item.votes_with_party_pct}}</td>
+                  
+              </tr>
+            </tbody> 
+    </table>
+
+    </div>
+
+
+
+
+    <div class="container">
+        
+            <footer class="page-footer font-small blue">
+                <div class="container">
+                    <div class="footer-copyright text-center py-3">©2016 TGIF | All Rights Reserved</div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    
+    
+       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+       
+<!--        <script src="../Java_Script_files/pro-congress-113-house.js"></script>-->
+        <script src="../Java_Script_files/main.js"
+            
+        ></script>
+    </div>
+</body>
+
+</html>
