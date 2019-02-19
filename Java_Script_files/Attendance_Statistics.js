@@ -2,11 +2,6 @@ var attendanceMembers;
 var url;
 
 
-function loadPage() {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("loaderDiv").style.display = "block";
-}
-
 
 
 if (window.location.pathname == "/html_starter_pages/senate_attendance.html") {
@@ -118,7 +113,7 @@ function membersCount(attendanceMembers) {
     }
    app.party.Democrat.membersAverage = averageAnArray(numberOfDems);
         app.party.Republican.membersAverage = averageAnArray(numberOfRep);
-        app.party.Independent.membersAverage = averageAnArray(numberOfIndi)||0;
+        app.party.Independent.membersAverage = averageAnArray(numberOfIndi)||"0";
         app.party.Total.membersAverage = averageAnArray(totalMembers);
 
 
@@ -129,21 +124,18 @@ function membersCount(attendanceMembers) {
 
 }
 
-// if
-//    (averageAnArray(numberOfIndi)==0){
-//        app.party.Independent.membersAverage = null
-//        }else{
-//        app.party.Independent.membersAverage = averageAnArray(numberOfIndi)
-//        };
 
-
+function loadPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("loaderDiv").style.display = "block";
+}
 
 function averageAnArray(anArray) {
     var sum = 0
     for (var i = 0; i < anArray.length; i++) {
         sum += anArray[i].votes_with_party_pct
     }
-    return Math.round((sum / anArray.length))
+    return (sum / anArray.length).toFixed(1)
 
 
 }

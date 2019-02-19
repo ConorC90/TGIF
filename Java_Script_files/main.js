@@ -4,25 +4,12 @@ var url;
 
 var senateMembers;
 
-function loadPage() {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("loaderDiv").style.display = "block";
-}
 
 if (window.location.pathname == "/html_starter_pages/senatePage.html") {
     url =("https://api.propublica.org/congress/v1/113/senate/members.json");
 } else {
     url =("https://api.propublica.org/congress/v1/113/house/members.json");
 }
-
-
-
-
-
-
-
-
-
 
 fetch(url, {
 
@@ -45,7 +32,7 @@ fetch(url, {
     senateMembers = data.results[0].members;
 //    app.senateMembers = data.results[0].members;
     app.members = senateMembers //you need this to link your data
-    console.log(senateMembers)
+  
  
     orderedStates(senateMembers)
     stateDrop(senateMembers)
@@ -74,34 +61,6 @@ var app = new Vue({
       
   }
 }); 
-
-
-
-
-//
-//var members = data.results[0].members;
-//var mName = (data.results[0].members[0].middle_name);
-//var sName = (data.results[0].members[0].last_name);
-//var party = (data.results[0].members[0].party);
-//var state = (data.results[0].members[0].state);
-//var seniority = (data.results[0].members[0].seniority);
-//var votes = (data.results[0].members[0].votes_with_party_pct);
-//var URL = (data.results[0].members[0].url);
-//var fName = (data.results[0].members[0].first_name.link(URL));
-//
-//var linkedNames = (fName.link(URL));
-
-//var tableObject{
-//    firstName:
-//    
-//    
-//}
-
-
-
-
-
-
 
 
 var independentParty = document.getElementById("independent");
@@ -138,7 +97,6 @@ function boxIsClicked() {
 }
 
 
-
 function stateFilter(tickedMembers) {
     var StateAndPartyFilter = [];
     
@@ -150,34 +108,6 @@ function stateFilter(tickedMembers) {
 //    createMyTable(StateAndPartyFilter); //this line allows you to use the var tickedMembers in the function createMyTable
 }
 
-
-//
-//function createMyTable(filteredMembers) {
-//
-//    var myTable = document.getElementById("myTbody");
-//    myTable.innerHTML = "";
-//    for (var i = 0; i < filteredMembers.length; i++) {
-//
-//        var row = document.createElement("tr");
-//        
-//        //you want to display frist and middel name in one col, but empty middle name vakues return "Null"
-//        // you solved this by adding a || if there is no value
-//        
-//
-//        row.insertCell().innerHTML = (filteredMembers[i].first_name + " " + (filteredMembers[i].middle_name || "")).link(filteredMembers[i].url)
-//       
-//        row.insertCell().innerHTML = (filteredMembers[i].last_name);
-//        row.insertCell().innerHTML = filteredMembers[i].party;
-//        row.insertCell().innerHTML = filteredMembers[i].state;
-//        row.insertCell().innerHTML = filteredMembers[i].seniority;
-//        row.insertCell().innerHTML = filteredMembers[i].votes_with_party_pct;
-//
-//        myTable.append(row); //you need to append in order to stick them together
-//
-//    }
-//}
-//
-////createMyTable(members);
 
 
 
@@ -214,4 +144,10 @@ function stateDrop() {
     }
 
 }
+
+function loadPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("loaderDiv").style.display = "block";
+}
+
 //stateDrop() //call your functions

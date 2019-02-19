@@ -87,9 +87,7 @@
                 </ul>
 
             </nav>
-            <div id="loader"></div>
 
-            <div id="loaderDiv" class="animate-bottom">
 
             <hr>
 
@@ -104,27 +102,27 @@
 
 
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-1">
-                            <input type="checkbox" name="partyAffiliation" value="democrat" class="checkedBox" id="democrat" onclick="boxIsClicked();">
-                            <p>Democrat</p>
-                        </div>
-                        <div class="col-lg-1">
-                            <input type="checkbox" name="partyAffiliation" value="republican" class="checkedBox" id="republican" onclick="boxIsClicked();">
-                            <p>Republican</p>
-                        </div>
-                        <div class="col-lg-1">
-                            <input type="checkbox" name="partyAffiliation" value="independent" class="checkedBox" id="independent" onclick="boxIsClicked();">
-                            <p>Independent</p>
+                 <div class="row">
+           <div class="col-lg-1">
+           <label>
+            <input type="checkbox" name="partyAffiliation" value="D" id="democrat" onclick="boxIsClicked();">
+            <p>Democrat</p></label>
+            </div>
+            <div class="col-lg-1"><label>
+            <input type="checkbox" name="partyAffiliation" value="R" id="republican" onclick="boxIsClicked();">
+            <p>Republican</p></label>
+            </div>
+            
+            <div class="col-lg-1">
+         <label><input type="checkbox" name="partyAffiliation" value="I" id="independent" onclick="boxIsClicked();">
+            <p>Independent</p></label>
+            </div>
+        </div>
 
-                        </div>
+            <div id="loader"></div>
 
-
-                    </div>
-                </div>
-
-                <div class="container" id="app">
+            <div id="loaderDiv" class="animate-bottom">
+                <div id="app">
                     <table class="table table-bordered table-hover text-center table-condensed">
                         <thead>
                             <tr>
@@ -145,17 +143,22 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in filteredMembers">
-                                <td><a href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
+                                <td class="fixedTable"><a href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
 
                                 <td>{{item.party}}</td>
                                 <td>{{item.state}}</td>
                                 <td>{{item.seniority}}</td>
-                                <td>{{item.votes_with_party_pct}}</td>
+                                <td>{{item.votes_with_party_pct + "&#x25;"}}</td>
 
                             </tr>
                         </tbody>
                     </table>
 
+        <div class="notificationContainer">
+        <div class="notification is-danger" v-if="filteredMembers.length == 0"><p>
+          No membesr match your search criteria. Try to change State or Party to solve it.</p>
+        </div>
+      </div>
 
 
                 </div>

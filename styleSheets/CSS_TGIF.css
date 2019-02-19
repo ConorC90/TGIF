@@ -20,7 +20,7 @@ thead{
 }
 
 h1{
-    font-family:serif;
+    font-family: serif;
 }
 
 h2{
@@ -43,14 +43,21 @@ th{
     background-color: #2f2f2f;
     color: #cacaca;
 }
-
+.fixedTable{
+    width: 300px;
+}
+.notificationContainer{
+    text-align: center;
+    background-color: #cacaca;
+    font-size: 20px;
+}
 
 /*Loader Styling*/
 
 #loader {
   position: absolute;
-  left: 50%;
   bottom: 5%;
+  left: 50%;
   z-index: 1;
   width: 150px;
   height: 150px;
@@ -97,4 +104,18 @@ th{
 #loaderDiv {
   display: none;
 
+}
+#indexButton2{
+   display: none;
+}
+#collapse{
+    display: none;
+}
+.btn{
+    width: 100px;
+}
+
+#showTextOnClick{
+/*    display: none;*/
+    
 }

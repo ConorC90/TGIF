@@ -135,7 +135,7 @@
                 <tr v-for = "item in theBottomTenVoters">
                             <td><a v-bind:href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
                             <td>{{item.missed_votes}}</td>
-                            <td>{{item.missed_votes_pct}}</td>
+                            <td>{{item.missed_votes_pct + "&#37;"}}</td>
                         </tr>
             </table>
                            
@@ -154,7 +154,7 @@
                     <tr v-for = "item in theTopTenVoters">
                             <td><a v-bind:href="item.url" target="_blank"> {{item.first_name}} {{item.middle_name || " "}} {{item.last_name}}</a></td>
                             <td>{{item.missed_votes}}</td>
-                            <td>{{item.missed_votes_pct}}</td>
+                            <td>{{item.missed_votes_pct + "&#37;"}}</td>
                         </tr>
                 </tbody>
             </table>
