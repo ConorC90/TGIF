@@ -18,74 +18,76 @@
 </head>
 
 <body>
+   <div class="container">
     <header>
-            <div class="jumbotron text-center contanier-fluid img-circle container" style="background: transparent">
-            <div class="row">
-                <img src="../images/BIG%20LOGO.jpg" width="200" height="180" class="d-inline-block align-top col-lg-3 align-bottom img-circle" alt="TGIF Logo">
+            <div class="jumbotron text-center img-circle" style="background: transparent">
+                <div class="row align-bottom">
+                    <div>
+                        <div class="col-lg-3 align-bottom">
+                            <img src="../images/BIG%20LOGO.jpg" width="200" height="180" class="d-inline-block img-circle" alt="TGIF Logo">
+                        </div>
 
-                <div class="page-header col-lg-8 align-bottom">
-                    <h1>Transparent Government in Fact</h1>
+                        <div class="page-header col-lg-9 align-bottom">
+                            <h1>Transparent Government in Fact</h1>
 
+                        </div>
+                        
 
+                    </div>
                 </div>
-               <div class="emailLogo align-bottom"><p> 
-                <a class="mail glyphicon-envelope col-lg-1" href="mailto:info@tgif.net" target="_top">info@tgif.net</a></p></div>
-
             </div>
-        </div>
-</header>
-<!--                        <div class="row">-->
+        </header>
 
-                
-        <div class="container">
-    <nav class="navbar navbar-dark bg-dark  navbar-inverse ">
+        <nav class="navbar navbar-dark bg-dark  navbar-inverse ">
 
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">TGIF</a>
+            <div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TGIF</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="../html_starter_pages/Index.html">Home</a></li>
+
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Congress 113
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html_starter_pages/House_Party_Attendance.html">Senate</a></li>
+                            <li class='active'><a href="../html_starter_pages/housePage.html">House</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Attendance
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html_starter_pages/senate_attendance.html">Senate</a></li>
+                            <li><a href="../html_starter_pages/House_Party_Attendance.html">House</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Party Loyalty
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../html_starter_pages/senate_party-loyalty.html">Senate</a></li>
+                            <li><a href="../html_starter_pages/House_Party_Loyalty.html">House</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 <ul class="nav navbar-nav navbar-right">
+      <li><a class="mail glyphicon-envelope " href="mailto:info@tgif.net" target="_top">info@tgif.net</a></li>
+               <li></li>
+                </ul>
             </div>
-
-            <ul class="nav navbar-nav">
-                <li><a href="../html_starter_pages/Index.html">Home</a></li>
-                
-                   <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Congress 113
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../html_starter_pages/senatePage.html">Senate</a></li>
-                        <li class='active'><a href="../html_starter_pages/housePage.html">House</a></li>
-                    </ul>
-                </li>
-             
-                      <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Attendance
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../html_starter_pages/senate_attendance.html">Senate</a></li>
-                        <li><a href="../html_starter_pages/House_Party_Attendance.html">House</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Party Loyalty
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../html_starter_pages/senate_party-loyalty.html">Senate</a></li>
-                        <li><a href="../html_starter_pages/House_Party_Loyalty.html">House</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
         </div>
 
-<div id="loader"></div>
-    <div id="loaderDiv" class="animate-bottom">
 
            
 
@@ -115,6 +117,8 @@
             </div>
         </div>
 
+<div id="loader"></div>
+    <div id="loaderDiv" class="animate-bottom">
 
     <div id="app">
        <table class = "table table-bordered table-hover text-center table-condensed ">
@@ -149,7 +153,7 @@
     </table>
      <div class="notificationContainer">
         <div class="notification is-danger" v-if="filteredMembers.length == 0"><p>
-          No membesr match your search criteria. Try to change State or Party to solve it.</p>
+          No membesr match your search criteria.</p>
         </div>
       </div>
 
@@ -158,15 +162,16 @@
 
 
 
+    </div>
+    </div>
+</div>
+    <div class="container-fluid">
 
-    <div class="container">
-        
-            <footer class="page-footer font-small blue">
-                <div class="container">
-                    <div class="footer-copyright text-center py-3">©2016 TGIF | All Rights Reserved</div>
-                </div>
-            </footer>
-        </div>
+        <footer class="panel-footer">
+            <div class="container">
+                <div class="footer-copyright text-center py-3">©2016 TGIF | All Rights Reserved</div>
+            </div>
+        </footer>
     </div>
     
     
@@ -182,7 +187,6 @@
         <script src="../Java_Script_files/main.js"
             
         ></script>
-    </div>
 </body>
 
 </html>

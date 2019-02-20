@@ -133,8 +133,12 @@ function averageAnArray(anArray) {
     for (var i = 0; i < anArray.length; i++) {
         sum += anArray[i].votes_with_party_pct
     }
+    if (isNaN(sum / anArray.length)) {
+        return "0"
+    } else {
+        return (sum / anArray.length).toFixed(2)
 
-    return Math.round((sum / anArray.length))
+    }
 
 }
 

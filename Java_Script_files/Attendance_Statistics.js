@@ -5,9 +5,9 @@ var url;
 
 
 if (window.location.pathname == "/html_starter_pages/senate_attendance.html") {
-    url =("https://api.propublica.org/congress/v1/113/senate/members.json");
+    url = ("https://api.propublica.org/congress/v1/113/senate/members.json");
 } else {
-    url =("https://api.propublica.org/congress/v1/113/house/members.json");
+    url = ("https://api.propublica.org/congress/v1/113/house/members.json");
 }
 
 
@@ -29,7 +29,7 @@ fetch(url, {
         var data = JSON
         loadPage();
         attendanceMembers = data.results[0].members;
-    
+
 
         membersCount(attendanceMembers)
         //        averageAnArray()
@@ -60,24 +60,24 @@ var app = new Vue({
     el: '#app1',
     data: {
         party: {
-            Democrat:{
-                membersCount:0 ,
-                membersAverage:0 ,
-            },
-            Republican:{
-                membersCount:0 ,
-                membersAverage:0 ,
-            },
-            Independent:{
-                membersCount:0 ,
-                membersAverage:0 ,
-            },
-            Total:{
+            Democrat: {
                 membersCount: 0,
                 membersAverage: 0,
-        
-        },
-        
+            },
+            Republican: {
+                membersCount: 0,
+                membersAverage: 0,
+            },
+            Independent: {
+                membersCount: 0,
+                membersAverage: 0,
+            },
+            Total: {
+                membersCount: 0,
+                membersAverage: 0,
+
+            },
+
         },
         theBottomTenVoters: [],
         theTopTenVoters: [],
@@ -111,10 +111,10 @@ function membersCount(attendanceMembers) {
             totalMembers.push(attendanceMembers[i])
         }
     }
-   app.party.Democrat.membersAverage = averageAnArray(numberOfDems);
-        app.party.Republican.membersAverage = averageAnArray(numberOfRep);
-        app.party.Independent.membersAverage = averageAnArray(numberOfIndi)||"0";
-        app.party.Total.membersAverage = averageAnArray(totalMembers);
+    app.party.Democrat.membersAverage = averageAnArray(numberOfDems);
+    app.party.Republican.membersAverage = averageAnArray(numberOfRep);
+    app.party.Independent.membersAverage = averageAnArray(numberOfIndi) || "0";
+    app.party.Total.membersAverage = averageAnArray(totalMembers);
 
 
     app.party.Democrat.membersCount = numberOfDems.length
@@ -135,10 +135,15 @@ function averageAnArray(anArray) {
     for (var i = 0; i < anArray.length; i++) {
         sum += anArray[i].votes_with_party_pct
     }
-    return (sum / anArray.length).toFixed(1)
+    if (isNaN(sum / anArray.length)) {
+        return "0"
+    } else {
+        return (sum / anArray.length).toFixed(2)
 
+    }
 
 }
+
 
 
 
