@@ -153,7 +153,7 @@ function membersSum() {
     }
     app.party.Democrat.membersAverage = averageAnArray(numberOfDems);
     app.party.Republican.membersAverage = averageAnArray(numberOfRep);
-    app.party.Independent.membersAverage = averageAnArray(numberOfIndi) || "0";
+    app.party.Independent.membersAverage = averageAnArray(numberOfIndi);
     app.party.Total.membersAverage = averageAnArray(totalMembers);
 
 
@@ -161,7 +161,7 @@ function membersSum() {
     app.party.Republican.membersCount = numberOfRep.length
     app.party.Independent.membersCount = numberOfIndi.length
     app.party.Total.membersCount = totalMembers.length
-    console.log("function called")
+    
 
 }
 
@@ -273,7 +273,7 @@ function getBottomTenLoyal(members) {
 
         if (sortedLeastLoyal[j].votes_with_party_pct == sortedLeastLoyal[bottomTenValue - 1].votes_with_party_pct)
 
-            bottomTenLoyal.push(sortedLeastLoyal[j].votes_with_party_pct)
+            bottomTenLoyal.push(sortedLeastLoyal[j])
     }
 
     app.bottomTenLoyal = bottomTenLoyal;
@@ -285,12 +285,12 @@ function getBottomTenLoyal(members) {
 
 
 
+
 function getTopTenLoyal(members) {
 
     var sortedMostLoyal = members.sort(function (a, b) {
         return b.votes_with_party_pct - a.votes_with_party_pct;
     });
-
     var TopTenValue = Math.round(sortedMostLoyal.length * 0.1);
 
 
@@ -303,7 +303,8 @@ function getTopTenLoyal(members) {
     for (var j = TopTenLoyal.length; j < sortedMostLoyal; j++); {
 
         if (sortedMostLoyal[j].votes_with_party_pct == sortedMostLoyal[TopTenValue - 1].votes_with_party_pct)
-            TopTenLoyal.push(sortedMostLoyal[j].votes_with_party_pct)
+           
+            TopTenLoyal.push(sortedMostLoyal[j])
     }
 
     app.topTenLoyal = TopTenLoyal;
